@@ -31,6 +31,7 @@ namespace MyCRUD
             LoadGrid();;
         }
 
+
         //Function that clears all text boxes
         public void ClearData()
         {
@@ -156,6 +157,13 @@ namespace MyCRUD
                 MessageBox.Show("Employee updated successfully", "Updated", MessageBoxButton.OK, MessageBoxImage.Information);
                 ClearData();
             }
+        }
+
+        private void export_Click(object sender, RoutedEventArgs e)
+        {
+            services.OpenConnection();
+            services.ExportEmployees();
+            services.CloseConnection();
         }
     }
 }

@@ -65,6 +65,7 @@
         <Label Content="CRUD Operations using WPF" HorizontalAlignment="Left" Margin="145,231,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="16"/>
         <Label Content="ID" HorizontalAlignment="Left" Margin="239,173,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="search_id_txt" HorizontalAlignment="Left" Margin="280,175,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Button x:Name="export" Content="Export" HorizontalAlignment="Left" Margin="62,247,0,0" VerticalAlignment="Top" Width="48" Click="export_Click"/>
 
 
     </Grid>

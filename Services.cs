@@ -54,5 +54,11 @@ namespace MyCRUD
         {
             this.repo.UpdateEmployee(first_name, last_name, username, position, salary, id);
         }
+
+        //Method that stores Employee table all records to a text file
+        public void ExportEmployees()
+        {
+            this.repo.ExportEmployees();
+        }
     }
 }
