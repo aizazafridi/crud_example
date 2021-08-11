@@ -56,9 +56,9 @@ namespace MyCRUD
         }
 
         //Method that stores Employee table all records to a text file
-        public void ExportEmployees()
+        public void ExportEmployees(string location)
         {
-            this.repo.ExportEmployees();
+            this.repo.ExportEmployees(location);
         }
     }
 }

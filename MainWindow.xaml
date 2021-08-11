@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyCRUD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="800">
+        Title="MainWindow" Height="400" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="54*"/>
@@ -20,9 +20,9 @@
         <TextBox x:Name="lname_txt" HorizontalAlignment="Left" Margin="85,57,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="username_txt" HorizontalAlignment="Left" Margin="85,97,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="position_txt" HorizontalAlignment="Left" Margin="85,141,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="salary_txt" HorizontalAlignment="Left" Margin="86,177,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="salary_txt" HorizontalAlignment="Left" Margin="85,177,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <DataGrid x:Name="datagrid"  Margin="258,10,17,121" Grid.ColumnSpan="2"/>
-        <Button x:Name="InsertBtn" Content="Insert" HorizontalAlignment="Left" Margin="49,204,0,0" VerticalAlignment="Top" Width="80" FontWeight="Normal" Click="InsertBtn_Click">
+        <Button x:Name="InsertBtn" Content="Insert" HorizontalAlignment="Left" Margin="21,204,0,0" VerticalAlignment="Top" Width="80" FontWeight="Normal" Click="InsertBtn_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF3F3F3"/>
@@ -32,7 +32,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="145,204,0,0" VerticalAlignment="Top" Width="80" FontWeight="Normal" Grid.ColumnSpan="2" Click="UpdateBtn_Click">
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="181,313,0,0" VerticalAlignment="Top" Width="80" FontWeight="Normal" Click="UpdateBtn_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF3F3F3"/>
@@ -42,7 +42,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="247,204,0,0" VerticalAlignment="Top" Width="80" FontWeight="Normal" Click="DeleteBtn_Click">
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="85,313,0,0" VerticalAlignment="Top" Width="80" FontWeight="Normal" Click="DeleteBtn_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF3F3F3"/>
@@ -52,7 +52,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="ClearDataBtn" Content="Clear" HorizontalAlignment="Left" Margin="0,204,0,0" VerticalAlignment="Top" Width="80" FontWeight="Normal" Grid.Column="1" Click="ClearDataBtn_Click">
+        <Button x:Name="ClearDataBtn" Content="Clear" HorizontalAlignment="Left" Margin="21,241,0,0" VerticalAlignment="Top" Width="80" FontWeight="Normal" Click="ClearDataBtn_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF3F3F3"/>
@@ -62,10 +62,11 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Label Content="CRUD Operations using WPF" HorizontalAlignment="Left" Margin="145,231,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="16"/>
-        <Label Content="ID" HorizontalAlignment="Left" Margin="239,173,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="search_id_txt" HorizontalAlignment="Left" Margin="280,175,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Button x:Name="export" Content="Export" HorizontalAlignment="Left" Margin="62,247,0,0" VerticalAlignment="Top" Width="48" Click="export_Click"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="21,286,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="search_id_txt" HorizontalAlignment="Left" Margin="85,286,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="export" Content="Export" HorizontalAlignment="Left" Margin="357,274,0,0" VerticalAlignment="Top" Width="80" Click="export_Click" Grid.Column="1"/>
+        <Label Content="File Location" HorizontalAlignment="Left" Margin="136,270,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="location_txt" HorizontalAlignment="Left" Margin="227,275,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
 
 
     </Grid>

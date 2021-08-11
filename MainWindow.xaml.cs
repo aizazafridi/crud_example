@@ -161,8 +161,9 @@ namespace MyCRUD
 
         private void export_Click(object sender, RoutedEventArgs e)
         {
+            string location = location_txt.Text;
             services.OpenConnection();
-            services.ExportEmployees();
+            services.ExportEmployees(location);
             services.CloseConnection();
         }
     }

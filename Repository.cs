@@ -62,7 +62,7 @@ namespace MyCRUD
         }
 
         //Method that stores Employee table all records to a text file
-        public void ExportEmployees()
+        public void ExportEmployees(string location)
         {
             SqlDataReader sdr = null;
             string first_name = null;
@@ -81,7 +81,7 @@ namespace MyCRUD
             {
                 Console.WriteLine(ex.Message);
             }
-            StreamWriter writer = new StreamWriter("C:\\Employees\\file.txt");
+            StreamWriter writer = new StreamWriter(location);
             while(sdr.Read())
             {
                first_name = (string) sdr["FirstName"];
