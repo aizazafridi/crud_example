@@ -119,25 +119,28 @@ namespace MyCRUD
         }
 
         //Method that deletes a record in Employee table
-        public void DeleteEmployee(string id)
+        public int DeleteEmployee(string id)
         {
+            int rowsAffected = 0;
             string query = "DELETE FROM Employee WHERE ID = @ID";
             try
             {
                 SqlCommand cmd = new SqlCommand(query, this.conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@ID", id);
-                cmd.ExecuteNonQuery();
+                rowsAffected = cmd.ExecuteNonQuery();
             }
             catch(SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            return rowsAffected;
         }
 
         //Method that updates a record in Employee table
-        public void UpdateEmployee(string first_name, string last_name, string username, string position, string salary, string id)
+        public int UpdateEmployee(string first_name, string last_name, string username, string position, string salary, string id)
         {
+            int rowsAffected = 0;
             string query = "UPDATE EMPLOYEE SET FirstName = @FirstName, LastName = @LastName, UserName = @UserName, Position = @Position, Salary = @Salary WHERE ID = @ID";
             try
             {
@@ -149,12 +152,13 @@ namespace MyCRUD
                 cmd.Parameters.AddWithValue("@Position", position);
                 cmd.Parameters.AddWithValue("@Salary", salary);
                 cmd.Parameters.AddWithValue("@ID", id);
-                cmd.ExecuteNonQuery();
+                rowsAffected = cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            return rowsAffected;
         }
     }
 }

@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using Microsoft.Win32;
+using System.IO;
 
 namespace MyCRUD
 {
@@ -85,6 +87,17 @@ namespace MyCRUD
             return true;
         }
 
+        //Method that checks if the location text box is empty
+        public bool ValdateLocationTextBox()
+        {
+            if (location_txt.Text == string.Empty)
+            {
+                MessageBox.Show("Directory location is required", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            return true;
+        }
+
         //Method that validates the ID text box for updating the record
         public bool ValidateIdTextBox()
         {
@@ -127,21 +140,30 @@ namespace MyCRUD
         //Method that deletes a record
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
+            int rowsAffected = 0;
             string id = search_id_txt.Text;
             if (ValidateIdTextBox())
             {
                 services.OpenConnection();
-                services.DeleteEmployee(id);
+                rowsAffected = services.DeleteEmployee(id);
                 services.CloseConnection();
                 LoadGrid();
-                MessageBox.Show("Employee deleted successfully", "Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
-                ClearData();                       
+                if (rowsAffected == 0)
+                {
+                    MessageBox.Show("Employee with the given id not found", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    ClearData();
+                } else
+                {
+                    MessageBox.Show("Employee deleted successfully", "Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ClearData();
+                }                                     
             }     
         }
 
         //Method that updates a record
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
+            int rowsAffected = 0;
             string first_name = fname_txt.Text;
             string last_name = lname_txt.Text;
             string username = username_txt.Text;
@@ -151,20 +173,31 @@ namespace MyCRUD
             if (ValidateInputData() && ValidateIdTextBox())
             {
                 services.OpenConnection();
-                services.UpdateEmployee(first_name, last_name, username, position, salary, id);
+                rowsAffected = services.UpdateEmployee(first_name, last_name, username, position, salary, id);
                 services.CloseConnection();
                 LoadGrid();
-                MessageBox.Show("Employee updated successfully", "Updated", MessageBoxButton.OK, MessageBoxImage.Information);
-                ClearData();
+                if (rowsAffected == 0)
+                {
+                    MessageBox.Show("Employee with the given id not found", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    ClearData();
+                } else
+                {
+                    MessageBox.Show("Employee updated successfully", "Updated", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ClearData();
+                }
             }
         }
 
         private void export_Click(object sender, RoutedEventArgs e)
         {
-            string location = location_txt.Text;
-            services.OpenConnection();
-            services.ExportEmployees(location);
-            services.CloseConnection();
+            if (ValdateLocationTextBox())
+            {
+                string location = location_txt.Text;
+                services.OpenConnection();
+                services.ExportEmployees(location);
+                services.CloseConnection();
+                MessageBox.Show("Employees exported successfully", "Exported", MessageBoxButton.OK, MessageBoxImage.Information);
+            }           
         }
     }
 }

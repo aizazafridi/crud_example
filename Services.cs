@@ -44,15 +44,17 @@ namespace MyCRUD
         }
 
         //Method that deletes a record from Employee table
-        public void DeleteEmployee(string id)
+        public int DeleteEmployee(string id)
         {
-            this.repo.DeleteEmployee(id);
+            int rowsAffected = this.repo.DeleteEmployee(id);
+            return rowsAffected;
         }
 
         //Method that updates a record in Employee table
-        public void UpdateEmployee(string first_name, string last_name, string username, string position, string salary, string id)
+        public int UpdateEmployee(string first_name, string last_name, string username, string position, string salary, string id)
         {
-            this.repo.UpdateEmployee(first_name, last_name, username, position, salary, id);
+            int rowsAffected = this.repo.UpdateEmployee(first_name, last_name, username, position, salary, id);
+            return rowsAffected;
         }
 
         //Method that stores Employee table all records to a text file

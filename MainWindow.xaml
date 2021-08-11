@@ -64,9 +64,9 @@
         </Button>
         <Label Content="ID" HorizontalAlignment="Left" Margin="21,286,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="search_id_txt" HorizontalAlignment="Left" Margin="85,286,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="export" Content="Export" HorizontalAlignment="Left" Margin="357,274,0,0" VerticalAlignment="Top" Width="80" Click="export_Click" Grid.Column="1"/>
-        <Label Content="File Location" HorizontalAlignment="Left" Margin="136,270,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="location_txt" HorizontalAlignment="Left" Margin="227,275,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <Button x:Name="export" Content="Export" HorizontalAlignment="Left" Margin="289,268,0,0" VerticalAlignment="Top" Width="80" Click="export_Click" Grid.Column="1"/>
+        <Label Content="File Location" HorizontalAlignment="Left" Margin="54,268,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="location_txt" Text="C:\\Emp.txt" HorizontalAlignment="Left" Margin="146,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
 
 
     </Grid>
